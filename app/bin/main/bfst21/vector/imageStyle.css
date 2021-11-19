@@ -1,0 +1,75 @@
+.root {
+    -fx-background-color: red;
+}
+
+
+#btnCar {
+    -fx-background-image: url("CAR.png");
+    -fx-background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+#btnPedestrian {
+    -fx-background-image: url("PEDESTRIAN.png");
+    -fx-background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#btnBike {
+    -fx-background-image: url("BIKE.png");
+    -fx-background-size: 100% 100%;
+    background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btnPlusZoom {
+    -fx-background-image: url("PlusSymbol.png");
+    -fx-background-size: 75% 75%;
+    -fx-background-image: url("PlusSymbol.png");
+    -fx-background-size: 65% 65%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btnMinusZoom {
+    -fx-background-image: url("Minus.png");
+    -fx-background-size: 65% 65%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#btnPlusZoom {
+    -fx-background-image: url("PlusSymbol.png");
+    -fx-background-size: 75% 75%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+#btnToSpaceMode {
+    -fx-background-image: url("UFO.png");
+    -fx-background-color: #7300e6 ;
+    -fx-background-size: 65% 65%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-opacity: 0.3;
+}
+
+#btnToSpaceMode:hover{
+    -fx-opacity: 1.0;
+}
+#sep{
+
+}
+
+#btnMinusZoom {
+    -fx-background-image: url("Minus.png");
+    -fx-background-size: 75% 75%;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.list-cell:empty {
+    -fx-opacity: 0;
+}
+
+.separator{
+   -fx-border-color: transparent black transparent black;
+}
