@@ -17,25 +17,28 @@
                 <MapCanvas fx:id="canvas" height="${scene.height}" onMouseDragged="#onMouseDragged"  onMousePressed="#onMousePressed" onScroll="#onScroll" onMouseMoved="#streetCloseToPointer"  width="${scene.width}" AnchorPane.bottomAnchor="0.0" />
                     <children>
                         <!-- Makes the search fields-->
-                        <TextField fx:id="searchField" minWidth="180.0" promptText="Search for Address" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" onKeyTyped="#recommendFromAddress"/>
-                        <TextField fx:id="endAddressField" minWidth="180.0" promptText="End Address" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" onKeyTyped="#recommendToAddress"/>
-                        <Button fx:id="searchBtn" text="Search" minWidth="45" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="130" onMousePressed="#searchRoute"/>
+                        <TextField fx:id="searchField" minWidth="180.0" promptText="Search for Address" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0" onKeyTyped="#recommendFromAddress" onKeyPressed="#hideRoadGuide"/>
+                        <TextField fx:id="endAddressField" minWidth="180.0" promptText="End Address" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" onKeyTyped="#recommendToAddress" onKeyPressed="#hideRoadGuide"/>
+                        <Button fx:id="searchBtn" text="Search" minWidth="45" AnchorPane.leftAnchor="200" AnchorPane.topAnchor="50.0" onMousePressed="#searchRoute"/>
                         <!-- Makes the different buttons for choosing vehicle type-->
                         <Button id="btnCar" onMousePressed="#carRouteActionListener" minWidth="45.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="90.0"/>
-                        <Button id="btnPedestrian" onMousePressed="#pedestrianRouteActionListener" minWidth="45.0" AnchorPane.leftAnchor="77.5" AnchorPane.topAnchor="90.0"/>
-                        <Button id="btnBike" onMousePressed="#bikeRouteActionListener" minWidth="45.0" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="90.0"/>
+                        <Button id="btnPedestrian" onMousePressed="#motorlessRouteActionListener" minWidth="45.0" AnchorPane.leftAnchor="77.5" AnchorPane.topAnchor="90.0"/>
+                        <Button id="btnCarWalk" onMousePressed="#driveWalkRouteActionListener" minWidth="45.0" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="90.0"/>
                         <!-- Makes zoom buttons-->
                         <Button id="btnPlusZoom"  minWidth="45" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="50" onMousePressed="#zoomInButton"/>
                         <Button id="btnMinusZoom"  minWidth="45" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="80" onMousePressed="#zoomOutButton"/>
                         <!-- Makes theme button-->
                         <Button id="btnToSpaceMode"  minWidth="45" AnchorPane.leftAnchor="20" AnchorPane.bottomAnchor="50" onMousePressed="#toDarkMode"/>
+                        <ListView fx:id="roadGuideListView" maxHeight="290" maxWidth="210" AnchorPane.topAnchor="130.0" AnchorPane.leftAnchor="10.0"/>
+                        <ListView fx:id="fromListView" maxHeight="187" maxWidth="180" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0" onMousePressed="#selectFromAddress"/>
+                        <ListView fx:id="toListView" maxHeight="187" maxWidth="180" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="75.0" onMousePressed="#selectToAddress"/>
                         <!-- Makes UI scale bar-->
                         <VBox   alignment="BOTTOM_RIGHT"  minWidth="100" maxHeight="2" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="30.0">
                             <Separator  id="sep" orientation="HORIZONTAL"  minHeight="20.0" maxWidth="50" AnchorPane.bottomAnchor="30" AnchorPane.rightAnchor="5.0" >
                             </Separator>
                             <Label fx:id="label1" AnchorPane.bottomAnchor="10" minWidth="20" text="1,71 km"  textAlignment="LEFT"> </Label>
                         </VBox>
-                        <Label fx:id="label2" AnchorPane.topAnchor="180" AnchorPane.leftAnchor="10" minWidth="20" text="Mortensgade" textAlignment="LEFT"> </Label>
+                        <Label fx:id="label2" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="210" minWidth="20" text="Mortensgade" textAlignment="LEFT"> </Label>
 
 
                     </children>
@@ -52,13 +55,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="Change view" />
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" text="Change view" onAction="#toDarkMode" />
                   </items>
                 </Menu>
               </menus>
